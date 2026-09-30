@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+    --ink: #16201e;
+    --muted: #68736f;
+    --paper: #e8e5dc;
+    --panel: #f5f2ea;
+    --acid: #d8f35d;
+    --coral: #ee7056;
+    --line: rgba(22, 32, 30, 0.15);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    background: #c9d3c5;
+    background-image: linear-gradient(135deg, rgba(255,255,255,.35), transparent 45%), repeating-linear-gradient(0deg, transparent 0 38px, rgba(22,32,30,.035) 39px);
+    font-family: "Space Mono", monospace;
+}
+
+button { font: inherit; cursor: pointer; }
+
+.game-shell { width: min(1040px, 100%); margin: 0 auto; padding: 16px 24px 12px; }
+.topbar { display: flex; justify-content: space-between; align-items: end; border-bottom: 2px solid var(--ink); padding-bottom: 10px; margin-bottom: 12px; }
+.eyebrow { margin: 0 0 6px; color: var(--coral); font-size: 11px; font-weight: 700; letter-spacing: .14em; }
+h1, h2 { margin: 0; font-family: "Barlow Condensed", sans-serif; letter-spacing: .01em; text-transform: uppercase; }
+h1 { font-size: clamp(32px, 5vw, 54px); line-height: .9; }
+h1 span { color: var(--coral); }
+.status { border: 1px solid var(--ink); padding: 7px 10px; font-size: 11px; letter-spacing: .08em; }
+.game-layout { display: grid; grid-template-columns: minmax(0, 600px) 1fr; gap: 22px; align-items: start; }
+.canvas-wrap { position: relative; width: min(100%, calc((100vh - 125px) * .75)); max-width: 600px; max-height: calc(100vh - 125px); aspect-ratio: 3 / 4; overflow: hidden; background: #9aae8c; border: 2px solid var(--ink); box-shadow: 9px 9px 0 rgba(22,32,30,.15); }
+canvas { display: block; width: 100%; height: 100%; }
+.overlay { position: absolute; inset: 0; display: grid; place-content: center; padding: 30px; text-align: center; background: rgba(22,32,30,.78); color: var(--panel); }
+.overlay.hidden { display: none; }
+.overlay h2 { max-width: 360px; font-size: clamp(38px, 7vw, 64px); line-height: .85; }
+.overlay p:not(.eyebrow):not(.hint) { max-width: 350px; margin: 18px auto 24px; color: #d5ded5; font-size: 13px; line-height: 1.6; }
+.speed-options { display: flex; justify-content: center; gap: 6px; margin: 0 auto 14px; }
+.speed-choice { border: 1px solid #89998d; background: transparent; color: #d5ded5; padding: 8px 11px; font-size: 10px; text-transform: uppercase; }
+.speed-choice.active, .speed-choice:hover { border-color: var(--acid); background: var(--acid); color: var(--ink); }
+.overlay button { border: 0; background: var(--acid); color: var(--ink); padding: 14px 22px; font-weight: 700; text-transform: uppercase; }
+.overlay button:hover { background: #f1ff9a; transform: translateY(-2px); }
+.hint { margin: 24px 0 0; color: #bdc8c0; font-size: 10px; }
+.dashboard { display: grid; gap: 12px; padding-top: 4px; }
+.metric, .readout, .powerups { background: var(--panel); border: 1px solid var(--line); padding: 15px 16px; }
+.metric { display: flex; justify-content: space-between; align-items: baseline; }
+.metric span, .readout span { color: var(--muted); font-size: 11px; text-transform: uppercase; }
+.metric strong { font-family: "Barlow Condensed", sans-serif; font-size: 31px; line-height: .8; }
+.dashboard-line { border-top: 2px solid var(--ink); margin: 4px 0; }
+.readout { display: flex; justify-content: space-between; font-size: 12px; }
+.readout strong { font-size: 11px; text-transform: uppercase; }
+.powerups { margin-top: 4px; }
+.powerup-row { display: grid; grid-template-columns: 14px 1fr auto; gap: 8px; align-items: center; margin-top: 12px; font-size: 12px; }
+.powerup-row b { color: var(--muted); font-size: 10px; }
+.dot { width: 10px; height: 10px; display: block; border-radius: 50%; }
+.blue { background: #4ab6da; } .red { background: var(--coral); } .gold { background: #eabf42; }
+.secondary-button { border: 1px solid var(--ink); background: transparent; padding: 11px; color: var(--ink); text-transform: uppercase; font-size: 11px; }
+.secondary-button:hover { background: var(--ink); color: var(--panel); }
+footer { margin-top: 10px; color: var(--muted); font-size: 10px; }
+
+@media (max-width: 760px) {
+    .game-shell { padding: 20px 14px; }
+    .topbar { margin-bottom: 16px; }
+    .game-layout { grid-template-columns: 1fr; }
+    .canvas-wrap { margin: 0 auto; }
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .dashboard-line, .powerups, .secondary-button { grid-column: 1 / -1; }
+    .dashboard-line { margin: 2px 0; }
+}

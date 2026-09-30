@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Racing Ultimate</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="game-shell">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">ARCADE RUN / 01</p>
+                <h1>Car Racing <span>Ultimate</span></h1>
+            </div>
+            <div class="status" id="status">READY</div>
+        </header>
+
+        <section class="game-layout">
+            <div class="canvas-wrap">
+                <canvas id="game" width="600" height="800" aria-label="Car racing game"></canvas>
+                <div class="overlay" id="overlay">
+                    <p class="eyebrow">TOP-DOWN RACER</p>
+                    <h2 id="overlay-title">Ready to drive?</h2>
+                    <p id="overlay-copy">Dodge traffic, collect coins, and survive as the road gets faster.</p>
+                    <div class="speed-options" aria-label="Choose race speed">
+                        <button class="speed-choice active" data-speed="normal" type="button">Normal</button>
+                        <button class="speed-choice" data-speed="medium" type="button">Medium</button>
+                        <button class="speed-choice" data-speed="hard" type="button">Hard</button>
+                    </div>
+                    <button id="start-button" type="button">Start race</button>
+                    <p class="hint">A / D or arrow keys to steer &middot; P to pause</p>
+                </div>
+            </div>
+
+            <aside class="dashboard" aria-label="Game dashboard">
+                <div class="metric"><span>Score</span><strong id="score">0</strong></div>
+                <div class="metric"><span>Distance</span><strong><span id="distance">0</span>m</strong></div>
+                <div class="metric"><span>Lives</span><strong id="lives">3</strong></div>
+                <div class="metric"><span>Speed</span><strong><span id="speed">5</span>x</strong></div>
+                <div class="dashboard-line"></div>
+                <div class="readout"><span>Biome</span><strong id="biome">Forest</strong></div>
+                <div class="readout"><span>Weather</span><strong id="weather">Clear</strong></div>
+                <div class="readout"><span>Pursuit</span><strong id="police">Inactive</strong></div>
+                <div class="powerups">
+                    <p class="eyebrow">Powerups</p>
+                    <div class="powerup-row"><span class="dot blue"></span>Shield <b id="shield">READY</b></div>
+                    <div class="powerup-row"><span class="dot red"></span>Nitro <b id="nitro">READY</b></div>
+                    <div class="powerup-row"><span class="dot gold"></span>Magnet <b id="magnet">READY</b></div>
+                </div>
+                <button class="secondary-button" id="pause-button" type="button">Pause</button>
+            </aside>
+        </section>
+        <footer>Collect coins for distance bonuses. Three collisions end the run.</footer>
+    </main>
+    <script src="game.js"></script>
+</body>
+</html>
