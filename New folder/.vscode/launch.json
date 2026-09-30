@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Car Racing Game",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/423Project.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
